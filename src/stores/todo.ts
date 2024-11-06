@@ -7,7 +7,6 @@ export const useTodoStore = defineStore('todo', () => {
 
   // getter
   const sortItems = computed(() => {
-    console.log('Sorting items:', todoItems.value); // Check if sorting is triggered
     return [...todoItems.value].sort((a, b) => a.key - b.key); // Return a new sorted array
   });
 
