@@ -1,4 +1,4 @@
 export interface Item {
-    key: number;
+    id: number;
     value: string;
 }
