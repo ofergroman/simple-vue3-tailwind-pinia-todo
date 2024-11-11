@@ -3,7 +3,7 @@
     <div class="flex flex-col gap-2 relative mb-4">
       <h2 class="text-2xl font-bold text-gray-700">To-Do List</h2>
       <div class="relative w-full">
-        <input v-model="itemData" type="text" placeholder="Add your task" class="w-full bg-gray-100 text-gray-900 border-none rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        <input v-model="itemData" type="text" placeholder="Add your task" class="w-full bg-gray-100 text-gray-900 border-none rounded-full py-2 pl-4 pr-24 focus:outline-none focus:ring-2 focus:ring-orange-500" />
         <button class="absolute top-0 end-0 bg-orange-500 text-white px-8 py-2 rounded-full" @click="addItemClicked()">Add</button>
       </div>
     </div>
