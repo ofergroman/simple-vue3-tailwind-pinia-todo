@@ -1,5 +1,6 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
+import { v4 as uuidv4 } from 'uuid';
 import { type Item } from '@/interfaces';
 
 export const useTodoStore = defineStore('todo', () => {
@@ -12,14 +13,12 @@ export const useTodoStore = defineStore('todo', () => {
   }
 
   // getter
-  const sortItems = computed(() => {
-    return [...todoItems.value].sort((a, b) => a.id - b.id); // Return a new sorted array
-  });
+  const items = computed(() => todoItems.value);
 
   // actions
   const addItem = (value: string) => {
     const newItem: Item = {
-      id: todoItems.value.length,
+      id: uuidv4(),
       value
     };
     todoItems.value.push(newItem);
@@ -28,10 +27,10 @@ export const useTodoStore = defineStore('todo', () => {
     localStorage.setItem('todoApp', JSON.stringify(todoItems.value))
   };
 
-  const removeItem = (id: number) => {
+  const removeItem = (id: string) => {
     todoItems.value = todoItems.value.filter((x) => x.id !== id);
     localStorage.setItem('todoApp', JSON.stringify(todoItems.value))
   };
 
-  return { todoItems, sortItems, addItem, removeItem };
+  return { todoItems, items, addItem, removeItem };
 });

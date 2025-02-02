@@ -10,8 +10,8 @@
     <div class="space-y-4">
       <div class="flex flex-col gap-2 px-2">
           <Item
-              v-for="item in sortItems"
-              :key="item.key"
+              v-for="item in items"
+              :key="item.id"
               :item="item"
               @remove-item="(key) => removeItem(key)"
           />
@@ -33,7 +33,7 @@ const itemData = ref<string>('');
 
 // Store
 const store = useTodoStore();
-const { sortItems } = storeToRefs(store);
+const { items } = storeToRefs(store);
 const {addItem, removeItem} = store;
 
 const addItemClicked = () => {
